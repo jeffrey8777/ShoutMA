@@ -1,0 +1,49 @@
+[
+	{
+    "type": "technique",
+    "id": "tec_shoutma_jigen_hit",
+    "name": "Eiiii!",
+    "melee_allowed": true,
+    "weighting": 100,
+    "messages": [ "You strike %s with a downward cut", "<npcname> strikes %s with a downward cut" ],
+	"mult_bonuses": [
+      { "stat": "movecost", "scale": 0.5 },
+      { "stat": "damage", "type": "bash", "scale": 1.5 },
+      { "stat": "damage", "type": "cut", "scale": 1.5 }
+    ],
+    "eocs": [
+      {
+        "id": "eoc_shoutma_jigen_hit",
+        "effect": [
+          { "u_make_sound": "Eiiii!", "volume": 50, "type": "speech" },
+		  { "u_message": "Eiiii!" }
+        ]
+      }
+    ],
+    "attack_vectors": [ "WEAPON" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jigen_crit",
+    "name": "EIIIII!!!",
+    "melee_allowed": true,
+	"crit_tec": true,
+    "weighting": 100,
+    "messages": [ "You strike %s with a powerful downward cut", "<npcname> strikes %s with a powerful downward cut" ],
+	"mult_bonuses": [
+      { "stat": "movecost", "scale": 1.75 },
+      { "stat": "damage", "type": "bash", "scale": 2.0 },
+      { "stat": "damage", "type": "cut", "scale": 2.0 }
+    ],
+    "eocs": [
+      {
+        "id": "eoc_shoutma_jigen_crit",
+        "effect": [
+          { "u_make_sound": "EIIIII!!!", "volume": 60, "type": "speech" },
+		  { "u_message": "EIIIII!!!" }
+        ]
+      }
+    ],
+    "attack_vectors": [ "WEAPON" ]
+  }
+]

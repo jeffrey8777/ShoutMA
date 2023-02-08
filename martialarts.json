@@ -1,0 +1,43 @@
+[
+	{
+		"type": "martial_art",
+		"id": "style_shoutma_jigen_ryu",
+		"name": { "str": "Jigen-ryu" },
+		"description": "A Japanese martial art known for it's kiai called Enkyo, it is a style that focuses purely on downwards strike attacks.",
+		"initiate": [
+			"You hold your sword vertically above your right shoulder, prepared to strike down.",
+			"%s assumes a tonbo-no-kamae."
+		],
+		"learn_difficulty": 8,
+		"primary_skill": "cutting",
+		"strictly_melee": true,
+		"static_buffs": [
+			{
+				"id": "buff_shoutma_jigen_static",
+				"name": "Tonbo-no-kamae",
+				"description": "With your sword standing high above,\nyou are ready to strike down everything blocking your path.\n\nArmor penetration increased by 50% of Strength, +2 accuracy.",
+				"melee_allowed": true,
+				"flat_bonuses": [
+					{ "stat": "arpen", "type": "bash", "scaling-stat": "str", "scale": 0.5 },
+					{ "stat": "arpen", "type": "cut", "scaling-stat": "str", "scale": 0.5 },
+					{ "stat": "arpen", "type": "stab", "scaling-stat": "str", "scale": 0.5 },
+					{ "stat": "hit", "scale": 2.0 }
+				]
+			}
+		],
+		"onhit_buffs": [
+			{
+				"id": "buff_shoutma_jigen_hit",
+				"name": "Tategi-uchi",
+				"description": "You practiced hitting a wooden post repeatedly,\nand now you enter a zen like mind when doing it.\n\n-1.0 Dodging skill, +5% critical hit chance.\nLasts 1 turn.  Stacks 5 times.",
+				"skill_requirements": [ { "name": "melee", "level": 3 } ],
+				"melee_allowed": true,
+				"buff_duration": 1,
+				"max_stacks": 5,
+				"flat_bonuses": [ { "stat": "crit_chance", "scale": 5.0 }, { "stat": "dodge", "scale": -1.0 } ]
+			}
+		],
+		"techniques": [ "tec_shoutma_jigen_hit", "tec_shoutma_jigen_crit" ],
+		"weapon_category": [ "JAPANESE_SWORDS" ]
+	}
+]

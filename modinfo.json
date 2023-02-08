@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "shoutma",
+    "name": "Shouting Martial Arts",
+    "authors": [ "jeffrey8777" ],
+    "description": "Testing shouting when using martial art techniques.",
+    "category": "misc_additions",
+    "dependencies": [ "dda" ]
+  }
+]
