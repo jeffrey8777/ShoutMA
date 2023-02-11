@@ -1,0 +1,12 @@
+[
+  {
+    "type": "mutation",
+	"id": "shoutma_jkd_trait",
+	"name": { "str": "Bruce Lee Fanboy" },
+	"points": 2,
+	"description": "You watched lots of Bruce Lee movies and you trained hard to become like him.",
+	"player_display": false,
+	"initial_ma_styles": [ "style_shoutma_jkd" ],
+	"valid": false
+  }
+]

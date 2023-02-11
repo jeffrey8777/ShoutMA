@@ -1,0 +1,11 @@
+[
+  {
+    "id": "manual_shoutma_jigen_ryu",
+    "copy-from": "book_martial",
+    "looks_like": "manual_karate",
+    "type": "BOOK",
+    "name": { "str": "Jigen-ryu manual", "str_pl": "copies of Jigen-ryu manuals" },
+    "description": "This book contains the teaching of Jigen-ryu.",
+    "martial_art": "style_shoutma_jigen_ryu"
+  }
+]

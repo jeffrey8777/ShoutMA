@@ -39,5 +39,76 @@
 		],
 		"techniques": [ "tec_shoutma_jigen_hit", "tec_shoutma_jigen_crit" ],
 		"weapon_category": [ "JAPANESE_SWORDS" ]
-	}
+	},
+	{
+    "type": "martial_art",
+    "id": "style_shoutma_jkd",
+    "name": { "str": "Bruce Lee JKD" },
+    "description": "Basically Jeet Kune Do except you watched too many Bruce Lee movies and now you unconsciously make strange noises every time you hit.",
+    "initiate": [
+      "You stand southpaw with weight on the rear leg, ready to spring into action.",
+      "%s stands southpaw, arms low, ready to go."
+    ],
+    "learn_difficulty": 8,
+    "arm_block": 3,
+    "static_buffs": [
+      {
+        "id": "buff_shoutma_jkd_static",
+        "name": "Be like water",
+        "description": "Do not be assertive, but adjust to the object, and you shall find a way around or through it.\n\nDodging skill increased by 25% of Perception, blocked damage reduced by 50% of Perception.",
+        "unarmed_allowed": true,
+        "flat_bonuses": [ { "stat": "block", "scaling-stat": "per", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "per", "scale": 0.25 } ]
+      }
+    ],
+    "onpause_buffs": [
+      {
+        "id": "buff_shoutma_jkd_onpause",
+        "name": "Not being tense but ready",
+        "description": "It is being wholly and quietly alive, aware and alert, ready for whatever may come.\n\nAccuracy increased by 20% of Perception.\nEnables \"One inch punch\" on stunned targets.\nLasts 1 turn.",
+        "skill_requirements": [ { "name": "unarmed", "level": 3 } ],
+        "unarmed_allowed": true,
+        "buff_duration": 1,
+        "flat_bonuses": [ { "stat": "hit", "scaling-stat": "per", "scale": 0.2 } ]
+      }
+    ],
+	"onmove_buffs": [
+      {
+        "id": "buff_shoutma_jkd_onmove",
+        "name": "Flowing",
+        "description": "The idea is that flowing water never goes stale, so just keep on flowing.\n\n+1 dodge attempt.\nLasts 2 turn.  Stacks 2 times.",
+        "skill_requirements": [ { "name": "unarmed", "level": 3 } ],
+        "unarmed_allowed": true,
+        "buff_duration": 2,
+        "max_stacks": 2,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
+      }
+    ],
+	"onattack_eocs" : [
+		{
+			"id": "eoc_shoutma_jkd_shout",
+			"effect": [ { "u_make_sound": "bruceleesnippet", "volume": 35, "type": "speech", "snippet": true }, { "u_message": "bruceleesnippet", "snippet": true } ] 
+		}
+	],
+	"onhit_eocs" : [
+		{
+        "id": "eoc_shoutma_jkd_combo",
+        "effect": [ { "u_add_effect": "shoutmacombo", "duration": 1 } ]
+      }
+	],
+	"onmove_eocs" : [
+	  {
+        "id": "eoc_shoutma_jkd_nocombo",
+		"effect": [ { "u_lose_effect": "shoutmacombo" } ]
+      }
+	],
+    "techniques": [
+      "tec_shoutma_jkd_punch",
+      "tec_shoutma_jkd_critpunch",
+      "tec_shoutma_jkd_punchcombo",
+      "tec_shoutma_jkd_kick",
+	  "tec_shoutma_jkd_critkick",
+      "tec_shoutma_jkd_kickcombo",
+	  "tec_shoutma_jkd_oneinchpunch"
+    ]
+  }
 ]

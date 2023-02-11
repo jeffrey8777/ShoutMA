@@ -1,0 +1,8 @@
+[
+	{
+		"type": "effect_type",
+		"id": "shoutmacombo",
+		"name": [ "Combo" ],
+		"desc": [ "You can use techniques that requires combo" ]
+	}
+]

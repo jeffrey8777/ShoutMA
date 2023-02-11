@@ -1,13 +1,12 @@
 [
-	{
+  {
     "type": "technique",
     "id": "tec_shoutma_jigen_hit",
     "name": "Eiiii!",
     "melee_allowed": true,
-    "weighting": 100,
     "messages": [ "You strike %s with a downward cut", "<npcname> strikes %s with a downward cut" ],
 	"mult_bonuses": [
-      { "stat": "movecost", "scale": 0.5 },
+      { "stat": "movecost", "scale": 0.75 },
       { "stat": "damage", "type": "bash", "scale": 1.5 },
       { "stat": "damage", "type": "cut", "scale": 1.5 }
     ],
@@ -15,7 +14,8 @@
       {
         "id": "eoc_shoutma_jigen_hit",
         "effect": [
-          { "u_make_sound": "Eiiii!", "volume": 50, "type": "speech" },
+          { "u_make_sound": "Eiiii!", "volume": 30, "type": "speech" },
+		  { "arithmetic": [ { "u_val": "stamina" }, "-=", { "const": 50 } ] },
 		  { "u_message": "Eiiii!" }
         ]
       }
@@ -28,7 +28,6 @@
     "name": "EIIIII!!!",
     "melee_allowed": true,
 	"crit_tec": true,
-    "weighting": 100,
     "messages": [ "You strike %s with a powerful downward cut", "<npcname> strikes %s with a powerful downward cut" ],
 	"mult_bonuses": [
       { "stat": "movecost", "scale": 1.75 },
@@ -39,11 +38,116 @@
       {
         "id": "eoc_shoutma_jigen_crit",
         "effect": [
-          { "u_make_sound": "EIIIII!!!", "volume": 60, "type": "speech" },
+          { "u_make_sound": "EIIIII!!!", "volume": 40, "type": "speech" },
+		  { "arithmetic": [ { "u_val": "stamina" }, "-=", { "const": 100 } ] },
 		  { "u_message": "EIIIII!!!" }
         ]
       }
     ],
     "attack_vectors": [ "WEAPON" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_punch",
+    "name": "Straight Punch",
+    "messages": [ "You deliver a vertical straight punch to %s", "<npcname> delivers a vertical straight punch to %s" ],
+    "unarmed_allowed": true,
+	"forbidden_char_flags": [ "shoutmacombo" ],
+    "mult_bonuses": [
+	  { "stat": "movecost", "scale": 0.75 }
+    ],
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_critpunch",
+    "name": "Precise Straight Punch",
+    "messages": [ "You deliver a precise vertical straight punch to %s", "<npcname> delivers a precise vertical straight punch to %s" ],
+    "unarmed_allowed": true,
+	"required_buffs_all": [ "buff_shoutma_jkd_onmove" ],
+	"crit_tec": true,
+	"stun_dur": 2,
+    "mult_bonuses": [
+	  { "stat": "movecost", "scale": 0.75 },
+      { "stat": "damage", "type": "bash", "scale": 1.1 },
+      { "stat": "damage", "type": "cut", "scale": 1.1 },
+      { "stat": "damage", "type": "stab", "scale": 1.1 }
+    ],
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_punchcombo",
+    "name": "Combo Punch",
+    "messages": [ "You follow-up with a vertical straight punch to %s", "<npcname> follow-ups with a vertical straight punch to %s" ],
+    "unarmed_allowed": true,
+	"required_char_flags": [ "shoutmacombo" ],
+    "mult_bonuses": [
+	  { "stat": "movecost", "scale": 0.6 }
+    ],
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_kick",
+    "name": "Side Kick",
+    "messages": [ "You quickly side kick %s", "<npcname> quickly side kicks %s" ],
+    "melee_allowed": true,
+    "unarmed_allowed": true,
+	"forbidden_char_flags": [ "shoutmacombo" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.75 }
+    ],
+    "attack_vectors": [ "FOOT" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_critkick",
+    "name": "Groin Kick",
+    "messages": [ "You groin kick %s", "<npcname> groin kicks %s" ],
+    "melee_allowed": true,
+    "unarmed_allowed": true,
+	"human_target": true,
+	"crit_tec": true,
+	"stun_dur": 2,
+    "mult_bonuses": [
+	  { "stat": "movecost", "scale": 0.75 },
+      { "stat": "damage", "type": "bash", "scale": 1.3 },
+      { "stat": "damage", "type": "cut", "scale": 1.3 },
+      { "stat": "damage", "type": "stab", "scale": 1.3 }
+    ],
+    "attack_vectors": [ "FOOT" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_kickcombo",
+    "name": "Hook Kick",
+    "messages": [ "You hook kick %s", "<npcname> hook kicks %s" ],
+    "melee_allowed": true,
+    "unarmed_allowed": true,
+	"required_char_flags": [ "shoutmacombo" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.6 }
+    ],
+    "attack_vectors": [ "FOOT" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shoutma_jkd_oneinchpunch",
+    "name": "One Inch Punch",
+    "messages": [ "You one inch punch %s", "<npcname> one inch punches %s" ],
+    "unarmed_allowed": true,
+	"required_buffs_all": [ "buff_shoutma_jkd_onpause" ],
+	"crit_ok": true,
+	"knockback_dist": 2,
+	"weighting": 100,
+	"stunned_target": true,
+	"flat_bonuses": [ { "stat": "arpen", "type": "bash", "scaling-stat": "str", "scale": 1.0 } ],
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 2 },
+      { "stat": "damage", "type": "cut", "scale": 2 },
+      { "stat": "damage", "type": "stab", "scale": 2 }
+    ],
+    "attack_vectors": [ "HAND" ]
   }
 ]

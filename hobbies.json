@@ -1,0 +1,12 @@
+[
+  {
+    "type": "profession",
+	"subtype": "hobby",
+	"id": "shoutma_jkd_prof",
+	"name": "Bruce Lee Fanboy",
+	"description": "You loved Bruce Lee so much that you watched every single movie he starred in and even trained  to fight like him.",
+	"points": 5,
+	"skills": [ { "level": 2, "name": "melee" }, { "level": 3, "name": "unarmed" }, { "level": 3, "name": "dodge" } ],
+	"traits": [ "shoutma_jkd_trait" ]
+  }
+]
